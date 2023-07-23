@@ -6,15 +6,15 @@ namespace App\Models\Buttons\OutOfGame;
 
 use App\Models\Buttons\Behaviors\Action\CreateNewGame;
 use App\Models\Buttons\Behaviors\NextButtons\MainGameMenu;
-use App\Models\Buttons\Button;
 
-class StartGame extends Button
+class StartGame extends \App\Models\Buttons\Button
 {
 
-    public function __construct($userId)
+    const TEXT_BUTTON = 'Начать игру';
+
+    public function __construct()
     {
-        $this->textButton = 'Начать игру';
-        $this->setActionBehavior(new CreateNewGame($userId));
+        $this->setActionBehavior(new CreateNewGame());
         $this->setNextButtonsBehavior(new MainGameMenu());
     }
 

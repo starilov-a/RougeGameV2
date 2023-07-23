@@ -4,33 +4,9 @@
 namespace App\Models;
 
 
-class Session
+use Illuminate\Database\Eloquent\Model;
+
+class Session extends Model
 {
-
-    protected $userId;
-
-    public $game;
-    public $meta;
-    public $user;
-
-    public function create($userId)
-    {
-
-    }
-
-    public function load($userId)
-    {
-
-    }
-
-    public function save($userId)
-    {
-
-    }
-
-    public function remove($userId)
-    {
-
-    }
 
 }

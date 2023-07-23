@@ -10,13 +10,11 @@ abstract class Button
     private $behaviorAction;
     private $behaviorNextButtons;
 
-    private static $textButton;
-
-    abstract function __construct($userId);
+    const TEXT_BUTTON = '';
 
     public static function getTextButton()
     {
-        return self::$textButton;
+        return self::TEXT_BUTTON;
     }
 
     public function action()

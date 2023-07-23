@@ -4,23 +4,16 @@
 namespace App\Models\Buttons\Behaviors\Action;
 
 
-use App\Models\Session;
+use App\Models\Game\Game;
 
-class CreateNewGame implements ActionBehaviors
+class CreateNewGame extends Action
 {
 
-    private $userId;
-
-    public function __construct($userId)
-    {
-        $this->userId = $userId;
-    }
+    const MESSAGE = 'Игра содзана';
 
     public function action()
     {
-        $session = new Session();
-        $session->create($this->userId);
-
-        return 'Игра содзана';
+        $this->game = New Game();
+        return self::MESSAGE;
     }
 }

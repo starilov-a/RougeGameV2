@@ -4,7 +4,10 @@
 namespace App\Models\Buttons\Behaviors\NextButtons;
 
 
-class MainGameMenu implements NextButtonsBehavior
+use App\Models\Buttons\InGame\PlayerInventory;
+use App\Models\Buttons\Meta\Back;
+
+class MainGameMenu extends Menu implements NextButtonsBehavior
 {
 
     public function nextButtons()
@@ -21,13 +24,16 @@ class MainGameMenu implements NextButtonsBehavior
 //                    [
 //                        'text' => 'Говорить'
 //                    ],
-//                ],
-//                [
-//                    [
-//                        'text' => 'Инвентарь'
-//                    ],
+                ],
+                [
+                    [
+                        'text' => PlayerInventory::TEXT_BUTTON
+                    ],
                     [
                         'text' => 'Исследовать'
+                    ],
+                    [
+                        'text' => Back::TEXT_BUTTON
                     ]
                 ]
             ],
