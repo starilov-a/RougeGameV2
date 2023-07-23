@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Session;
 use App\Models\User;
+use App\Services\Telegram;
+use Illuminate\Http\Request;
 
 class TelegramController extends Controller
 {
