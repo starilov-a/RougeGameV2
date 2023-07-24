@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('uid');
-            $table->json('meta')->default('');
-            $table->json('game')->default('');
+            $table->json('meta')->nullable();
+            $table->json('game')->nullable();
             $table->timestamps();
         });
     }
