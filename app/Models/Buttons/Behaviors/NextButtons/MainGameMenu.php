@@ -4,6 +4,8 @@
 namespace App\Models\Buttons\Behaviors\NextButtons;
 
 
+use App\Models\Buttons\InGame\FloorMap;
+use App\Models\Buttons\InGame\Movement;
 use App\Models\Buttons\InGame\PlayerInventory;
 use App\Models\Buttons\Meta\Back;
 
@@ -16,7 +18,7 @@ class MainGameMenu extends Menu implements NextButtonsBehavior
             'keyboard' => [
                 [
                     [
-                        'text' => 'Идти'
+                        'text' => Movement::TEXT_BUTTON
                     ],
 //                    [
 //                        'text' => 'Атаковать'
@@ -26,14 +28,11 @@ class MainGameMenu extends Menu implements NextButtonsBehavior
 //                    ],
                 ],
                 [
+//                    [
+//                        'text' => PlayerInventory::TEXT_BUTTON
+//                    ],
                     [
-                        'text' => PlayerInventory::TEXT_BUTTON
-                    ],
-                    [
-                        'text' => 'Исследовать'
-                    ],
-                    [
-                        'text' => Back::TEXT_BUTTON
+                        'text' => FloorMap::TEXT_BUTTON
                     ]
                 ]
             ],

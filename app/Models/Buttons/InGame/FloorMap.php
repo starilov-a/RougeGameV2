@@ -9,7 +9,7 @@ use App\Models\Buttons\Behaviors\NextButtons\MainGameMenu;
 
 class FloorMap extends \App\Models\Buttons\Button
 {
-    const TEXT_BUTTON = 'Идти назад';
+    const TEXT_BUTTON = 'Карта';
 
     public function __construct()
     {

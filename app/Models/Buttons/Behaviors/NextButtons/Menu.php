@@ -16,9 +16,9 @@ abstract class Menu implements NextButtonsBehavior
     {
         $session = session('botSession');
 
-        $this->game = &$session->game;
-        $this->meta = &$session->meta;
-        $this->meta->menuHistory[] = array_reverse(explode('\\', __CLASS__))[0];
+        $this->game = $session->game;
+        $this->meta = $session->meta;
+        $this->meta->menuHistory[] = array_reverse(explode('\\', get_called_class()))[0];
     }
 
 }

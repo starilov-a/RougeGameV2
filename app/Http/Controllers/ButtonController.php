@@ -33,27 +33,27 @@ class ButtonController
 
     public function index($message, $userId)
     {
-        $session = Session::firstOrCreate([
-            'uid' => $userId
-        ]);
-        $session->meta->lastMssage = $message;
+        $session = Session::init($userId);
+        $session->meta->setMessage($message);
+
         session(['botSession' => $session]);
 
-        if (isset($this->links['inGame'][$message]) && !empty($session->game)){
+        if (isset($this->links['inGame'][$message]) && $session->game->startedStatus()){
             $buttonClass = '\App\Models\Buttons\InGame'. '\\' . $this->links['inGame'][$message];
             $button = new $buttonClass();
-        } elseif (isset($this->links['outOfGame'][$message]) && empty($session->game)) {
+        } elseif (isset($this->links['outOfGame'][$message]) && !$session->game->startedStatus()) {
             $buttonClass = '\App\Models\Buttons\OutOfGame'. '\\' . $this->links['outOfGame'][$message];
             $button = new $buttonClass();
         } elseif (isset($this->links['meta'][$message])) {
             $buttonClass = '\App\Models\Buttons\Meta'. '\\' . $this->links['meta'][$message];
             $button = new $buttonClass();
+        } else {
+            return ['Неизвестная команда', false];
         }
-
         $message = $button->action();
         $buttons = $button->nextButtons();
 
-        $session->save();
+        $session->close();
 
         return [$message,$buttons];
     }

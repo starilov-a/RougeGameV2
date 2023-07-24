@@ -4,7 +4,10 @@
 namespace App\Models\Game\Generators\Player\PlayerBuilders;
 
 
-class PlayerBuilerInterface
+interface PlayerBuilerInterface
 {
+    public function reset();
+    public function setInRoom();
+    public function giveItems();
 
 }

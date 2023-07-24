@@ -7,6 +7,8 @@ namespace App\Models\Game\Generators\Game;
 use App\Models\Game\Entitys\Player;
 use App\Models\Game\Generators\Floor\FloorBuilders\Floor1Builder;
 use App\Models\Game\Generators\Floor\FloorDirector;
+use App\Models\Game\Generators\Player\PlayerBuilders\PlayerClassicBuilder;
+use App\Models\Game\Generators\Player\PlayerDirector;
 
 class GameBuilder
 {
@@ -19,15 +21,18 @@ class GameBuilder
         $creator = new FloorDirector();
         $builder = new Floor1Builder();
         $creator->createFloor($builder);
+        $this->floor = $builder->getResult();
 
-        return $builder->getResult();
+        return $this->floor;
     }
 
     public function createPlayer()
     {
-        //началтная точка
-        $room = $this->floor->randomEmptyRoom();
+        $creator = new PlayerDirector();
+        $builder = new PlayerClassicBuilder($this->floor);
+        $creator->createPlayer($builder);
+        $this->player = $builder->getResult();
 
-        return new Player($room);
+        return $this->player;
     }
 }

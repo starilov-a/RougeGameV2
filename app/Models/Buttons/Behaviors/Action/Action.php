@@ -16,8 +16,8 @@ abstract class Action implements ActionBehaviors
     {
         $session = session('botSession');
 
-        $this->game = &$session->game;
-        $this->meta = &$session->meta;
-        $this->meta->actionHistory[] = array_reverse(explode('\\', __CLASS__))[0];
+        $this->game = $session->game;
+        $this->meta = $session->meta;
+        $this->meta->actionHistory[] = array_reverse(explode('\\', get_called_class()))[0];
     }
 }

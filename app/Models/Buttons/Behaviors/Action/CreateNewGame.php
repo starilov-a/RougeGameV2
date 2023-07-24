@@ -13,7 +13,7 @@ class CreateNewGame extends Action
 
     public function action()
     {
-        $this->game = New Game();
+        $this->game->create();
         return self::MESSAGE;
     }
 }

@@ -54,7 +54,7 @@ abstract class Floor
 
     public function viewMap()
     {
-        $view = "Карта этажа " . self::LVL . ": \"" . self::TITLE . "\"" . "|\r\n" . "|\r\n";
+        $view = "Карта этажа " . $this::LVL . " -  \"" . $this::TITLE . "\"" . "\r\n" . "\r\n";
 
         for ($r = 0; $r < count($this->grid); $r++) {
             $view .= "|";
@@ -63,7 +63,7 @@ abstract class Floor
             $view .= "\r\n";
         }
 
-        return $this->grid;
+        return $view;
     }
 
     public function randomEmptyRoom() {

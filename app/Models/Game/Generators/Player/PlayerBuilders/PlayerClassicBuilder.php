@@ -4,26 +4,29 @@
 namespace App\Models\Game\Generators\Player\PlayerBuilders;
 
 
+use App\Models\Game\Entitys\Player;
+
 class PlayerClassicBuilder extends PlayerBuilder
 {
 
     public function reset()
     {
-        // TODO: Implement reset() method.
+        $this->player = new Player();
     }
 
-    public function createPlayer()
-    {
-        // TODO: Implement createPlayer() method.
-    }
 
     public function setInRoom()
     {
-        // TODO: Implement setInRoom() method.
+        $currentRoom = $this->floor->randomEmptyRoom();
+        $currentRoom->enter($this->player);
+
+        $roomsNear = $this->floor->getRoomsNearEntity($this->player);
+        foreach ($roomsNear as $room)
+            $room->setFogStatus(1);
     }
 
     public function giveItems()
     {
-        // TODO: Implement giveItems() method.
+        return false;
     }
 }

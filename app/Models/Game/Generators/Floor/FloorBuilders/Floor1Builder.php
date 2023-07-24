@@ -39,8 +39,8 @@ class Floor1Builder extends FloorBuilder
 		//Расстановка стен
 		for ($wallCount = 10, $i = 0; $i < $wallCount; $i++) {
 			do {
-				$r = rand(0, 14);
-				$c = rand(0, 14);
+				$r = rand(0, self::SIZE_FLOOR - 1);
+				$c = rand(0, self::SIZE_FLOOR - 1);
 			} while ($grid[$r][$c] instanceof WallRoom);
 			$grid[$r][$c] = new WallRoom($grid[$r][$c]);
 		}
@@ -55,13 +55,14 @@ class Floor1Builder extends FloorBuilder
 			}
 		}
 
-		//Расстановка темных комнат
-		$coordsStack = $officesRoomsCoords;
-		shuffle($coordsStack);
-		$coordsStack = array_values(array_keys($coordsStack));
-		for ($darkRooms = 2, $i = 0; $i < $darkRooms; $i++) {
-			$r = $coordsStack[$i][0];
-			$c = $coordsStack[$i][1];
+        //Расстановка темных комнат
+        $coordsStack = $officesRoomsCoords;
+        shuffle($coordsStack);
+
+        for ($darkRooms = 2, $i = 0; $i < $darkRooms; $i++) {
+            $couple = array_pop($coordsStack);
+            $r = $couple[0];
+			$c = $couple[1];
 			$grid[$r][$c] = new DarkRoom($grid[$r][$c]);
 		}
 

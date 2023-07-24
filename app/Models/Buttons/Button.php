@@ -7,8 +7,8 @@ namespace App\Models\Buttons;
 abstract class Button
 {
 
-    private $behaviorAction;
-    private $behaviorNextButtons;
+    protected $behaviorAction;
+    protected $behaviorNextButtons;
 
     const TEXT_BUTTON = '';
 
@@ -19,12 +19,12 @@ abstract class Button
 
     public function action()
     {
-        $this->behaviorAction->action();
+        return $this->behaviorAction->action();
     }
 
     public function nextButtons()
     {
-        $this->behaviorAction->nextButtons();
+        return $this->behaviorNextButtons->nextButtons();
     }
 
     public function setNextButtonsBehavior(\App\Models\Buttons\Behaviors\NextButtons\NextButtonsBehavior $nbb)

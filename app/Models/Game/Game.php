@@ -14,8 +14,14 @@ class Game
 
     public $player;
     public $world;
+    protected $started = false;
 
     public function __construct()
+    {
+
+    }
+
+    public function create()
     {
         $gameCreator = new GameBuilder();
 
@@ -24,6 +30,8 @@ class Game
 
         //генерация player
         $this->player = $gameCreator->createPlayer();
+
+        $this->started = true;
     }
 
     public function update()
@@ -31,6 +39,11 @@ class Game
         //обновление карты
         //обновление позиции нпс
         //отработка событий
+    }
+
+    public function startedStatus()
+    {
+        return $this->started;
     }
 
 }
