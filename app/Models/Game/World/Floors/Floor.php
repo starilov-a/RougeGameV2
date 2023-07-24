@@ -29,6 +29,8 @@ abstract class Floor
         $roomsNear = [];
         $entityRoom = $entity->getCurrentRoom();
 
+        var_dump($entityRoom);exit;
+
         for ($founded = false, $r = 0; $r < count($this->grid); $r++) {
             if ($founded)
                 break;

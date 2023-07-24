@@ -12,10 +12,15 @@ abstract class Entity implements EntityInterface
     protected $id;
     protected $currentRoom;
 
+    public function setCurrentRoom($currentRoom)
+    {
+        $this->currentRoom = $currentRoom;
+    }
+
     public function enterRoom(Room $room)
     {
         $this->currentRoom->exitRoom($this);
-        $this->currentRoom = $room;
+        $this->setCurrentRoom($room);
         return $room->enter($this);
     }
 

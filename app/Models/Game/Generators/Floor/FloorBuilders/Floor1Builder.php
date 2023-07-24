@@ -34,7 +34,6 @@ class Floor1Builder extends FloorBuilder
 
 	public function createRoomModification() {
 		$grid = $this->floor->getGrid();
-		$randomazer = new \Random\Randomizer();
 
 		//Расстановка стен
 		for ($wallCount = 10, $i = 0; $i < $wallCount; $i++) {
