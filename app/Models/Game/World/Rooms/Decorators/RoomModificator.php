@@ -19,7 +19,7 @@ abstract class RoomModificator implements RoomInterface, ViewInterface
 
 	public function getId()
     {
-        $this->room->getId();
+        return $this->room->getId();
     }
 
     public function enter(EntityInterface $entity)
@@ -59,7 +59,7 @@ abstract class RoomModificator implements RoomInterface, ViewInterface
 
 	public function getFlags($flag)
     {
-        $this->room->getFlags($flag);
+        return $this->room->getFlags($flag);
     }
 
     public function setFlags($flag, $status)
@@ -69,7 +69,7 @@ abstract class RoomModificator implements RoomInterface, ViewInterface
 
     public function getVisitedStatus()
     {
-        $this->room->getVisitedStatus();
+        return $this->room->getVisitedStatus();
     }
 
     public function setVisitedStatus()
@@ -79,7 +79,11 @@ abstract class RoomModificator implements RoomInterface, ViewInterface
 
     public function getView()
     {
-        $this->room->getView();
+        return $this->room->getView();
+    }
+
+    public function getEntity() {
+        return $this->room->getEntity();
     }
 }
 

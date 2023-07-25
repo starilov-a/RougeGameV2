@@ -21,7 +21,7 @@ class MoveMenu extends Menu implements NextButtonsBehavior
                 [
                     [
                         'text' => MoveUp::TEXT_BUTTON
-                    ],
+                    ]
                 ],
                 [
                     [
@@ -34,7 +34,12 @@ class MoveMenu extends Menu implements NextButtonsBehavior
                 [
                     [
                         'text' => MoveDown::TEXT_BUTTON
-                    ],
+                    ]
+                ],
+                [
+                    [
+                        'text' => Back::TEXT_BUTTON
+                    ]
                 ],
             ],
             'resize_keyboard' => true

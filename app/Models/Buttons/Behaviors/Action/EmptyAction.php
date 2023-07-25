@@ -7,7 +7,7 @@ namespace App\Models\Buttons\Behaviors\Action;
 class EmptyAction extends Action
 {
 
-    const MESSAGE = '';
+    const MESSAGE = '...';
 
     public function action()
     {

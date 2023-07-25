@@ -20,6 +20,7 @@ interface RoomInterface
 	public function getVisitedStatus();
     public function setVisitedStatus();
 	public function setEntity(EntityInterface $entity);
+    public function getEntity();
 }
 
 

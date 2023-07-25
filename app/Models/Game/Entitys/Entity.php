@@ -5,6 +5,7 @@ namespace App\Models\Game\Entitys;
 
 
 use App\Models\Game\World\Rooms\Room;
+use App\Models\Game\World\Rooms\RoomInterface;
 
 abstract class Entity implements EntityInterface
 {
@@ -15,12 +16,11 @@ abstract class Entity implements EntityInterface
     public function setCurrentRoom($currentRoom)
     {
         $this->currentRoom = $currentRoom;
+        $currentRoom->enter($this);
     }
 
-    public function enterRoom(Room $room)
+    public function enterRoom(RoomInterface $room)
     {
-        $this->currentRoom->exitRoom($this);
-        $this->setCurrentRoom($room);
         return $room->enter($this);
     }
 
@@ -36,11 +36,6 @@ abstract class Entity implements EntityInterface
     }
 
     public function getCurrentRoom()
-    {
-        return $this->currentRoom;
-    }
-
-    public function get()
     {
         return $this->currentRoom;
     }

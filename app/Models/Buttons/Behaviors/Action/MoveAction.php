@@ -21,13 +21,13 @@ class MoveAction extends Action
         $roomsNear = $this->game->world->getRoomsNearEntity($player);
 
         if ($this->direction == 'up') {
-            $player->enterRoom($roomsNear['up']);
+            $text = $player->enterRoom($roomsNear['up']);
         } elseif ($this->direction == 'down') {
-            $player->enterRoom($roomsNear['dwon']);
+            $text = $player->enterRoom($roomsNear['down']);
         } elseif ($this->direction == 'right') {
-            $player->enterRoom($roomsNear['right']);
+            $text = $player->enterRoom($roomsNear['right']);
         } elseif ($this->direction == 'left') {
-            $player->enterRoom($roomsNear['left']);
+            $text = $player->enterRoom($roomsNear['left']);
         }
 
         //изменение статуса тумана вокруг player
@@ -35,6 +35,6 @@ class MoveAction extends Action
         foreach ($roomsNear as $room)
             $room->setFogStatus(1);
 
-        return 'Топ-топ в другую комнату';
+        return $text;
     }
 }

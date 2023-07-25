@@ -13,9 +13,7 @@ class WallRoom extends RoomModificator
 
 	public function enter(EntityInterface $entity)
 	{
-		$text = 'Ой, вы стукнулись лбом об стену...';
-
-		return $text;
+		return 'Ой, вы стукнулись лбом об стену...';
 	}
 
 	public function getView()

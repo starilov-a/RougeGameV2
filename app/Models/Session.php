@@ -34,7 +34,6 @@ class Session extends Model
 
 //    public function getMetaAttribute($value)
 //    {
-//        var_dump('dddddd');exit;
 //        if (empty($value))
 //            return new Meta();
 //

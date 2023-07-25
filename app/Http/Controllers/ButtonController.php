@@ -13,12 +13,11 @@ class ButtonController
             'Инвентарь' => 'InventoryButton',
             'Карта' => 'FloorMap',
             'Фонарик' => 'Flashlight',
-
-            'Идти' => 'Movement',
-            'Вперед' => 'MoveUp',
+            'Движение' => 'Movement',
+            'Вверх' => 'MoveUp',
             'Вправо' => 'MoveRight',
             'Влево' => 'MoveLeft',
-            'Назад' => 'MoveDown',
+            'Вниз' => 'MoveDown',
         ],
         'outOfGame' => [
             'Начать игру' => 'StartGame',
@@ -54,6 +53,7 @@ class ButtonController
         $buttons = $button->nextButtons();
 
         $session->close();
+        //var_dump($message, $buttons);exit;
 
         return [$message,$buttons];
     }

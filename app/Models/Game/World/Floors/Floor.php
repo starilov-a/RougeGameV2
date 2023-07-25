@@ -29,29 +29,23 @@ abstract class Floor
         $roomsNear = [];
         $entityRoom = $entity->getCurrentRoom();
 
-        var_dump($entityRoom);exit;
-
-        for ($founded = false, $r = 0; $r < count($this->grid); $r++) {
+        for ($founded = false, $r = 1; $r < count($this->grid) - 1; $r++) {
             if ($founded)
                 break;
-            for ($c = 0; $c < count($this->grid[$r]); $c++) {
-                if ($this->grid[$r][$c]->getId() == $entityRoom->getId()) {
-                    $roomUp = &$this->grid[$r-1][$c];
-                    $roomDown = &$this->grid[$r+1][$c];
-                    $roomRight = &$this->grid[$r][$c+1];
-                    $roomLeft = &$this->grid[$r-1][$c-1];
+            for ($c = 1; $c < count($this->grid[$r]) - 1; $c++) {
+                if ($this->grid[$r][$c] === $entityRoom) {
+                    $roomsNear['up'] = $this->grid[$r-1][$c];
+                    $roomsNear['down'] = $this->grid[$r+1][$c];
+                    $roomsNear['right'] = $this->grid[$r][$c+1];
+                    $roomsNear['left'] = $this->grid[$r][$c-1];
+
                     $founded = true;
                     break;
                 }
             }
         }
-
-        return $roomsNear = [
-            'up' => $roomUp,
-            'down' => $roomDown,
-            'right' => $roomRight,
-            'left' => $roomLeft
-        ];
+        var_dump($entityRoom);exit;
+        return $roomsNear;
     }
 
     public function viewMap()
@@ -70,10 +64,11 @@ abstract class Floor
 
     public function randomEmptyRoom() {
 	    do {
-            $r = rand(0, count($this->grid) - 1);
-            $c = rand(0, count($this->grid) - 1);
+	        $maxCell = count($this->grid) - 1;
+            $r = rand(0, $maxCell);
+            $c = rand(0, $maxCell);
             if (!($this->grid[$r][$c] instanceof WallRoom)) {
-                $randRoom = &$this->grid[$r][$c];
+                $randRoom = $this->grid[$r][$c];
                 return $randRoom;
             }
         } while (true);

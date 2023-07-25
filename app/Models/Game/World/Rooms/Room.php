@@ -14,7 +14,6 @@ class Room implements RoomInterface, ViewInterface
 	protected $entity = [];
 	protected $flags = [
 		'visited' => false,
-		'flashed' => false,
 		'fog' => 2,
 	];
     protected $alieses = [
@@ -79,6 +78,10 @@ class Room implements RoomInterface, ViewInterface
 		$nameEntity = $entity->getEntityName();
 		$this->entity[$nameEntity][] = $entity;
 	}
+
+    public function getEntity() {
+        return $this->entity;
+    }
 
 	public function getView()
     {

@@ -19,18 +19,9 @@ class MainGameMenu extends Menu implements NextButtonsBehavior
                 [
                     [
                         'text' => Movement::TEXT_BUTTON
-                    ],
-//                    [
-//                        'text' => 'Атаковать'
-//                    ],
-//                    [
-//                        'text' => 'Говорить'
-//                    ],
+                    ]
                 ],
                 [
-//                    [
-//                        'text' => PlayerInventory::TEXT_BUTTON
-//                    ],
                     [
                         'text' => FloorMap::TEXT_BUTTON
                     ]
