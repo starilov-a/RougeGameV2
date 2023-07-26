@@ -48,7 +48,7 @@ class Room implements RoomInterface, ViewInterface
 		return '';
 	}
 
-	public function enter(EntityInterface $entity)
+	public function enterRoom(EntityInterface $entity, RoomInterface $room)
 	{
 		return '';
 	}

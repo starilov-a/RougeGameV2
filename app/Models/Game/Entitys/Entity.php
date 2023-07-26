@@ -16,12 +16,11 @@ abstract class Entity implements EntityInterface
     public function setCurrentRoom($currentRoom)
     {
         $this->currentRoom = $currentRoom;
-        $currentRoom->enter($this);
     }
 
-    public function enterRoom(RoomInterface $room)
+    public function changeRoom(RoomInterface $room)
     {
-        return $room->enter($this);
+        return $room->enterRoom($this, $room);
     }
 
     public function getEntityName()

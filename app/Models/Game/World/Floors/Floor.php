@@ -44,7 +44,6 @@ abstract class Floor
                 }
             }
         }
-        var_dump($entityRoom);exit;
         return $roomsNear;
     }
 
@@ -65,8 +64,8 @@ abstract class Floor
     public function randomEmptyRoom() {
 	    do {
 	        $maxCell = count($this->grid) - 1;
-            $r = rand(0, $maxCell);
-            $c = rand(0, $maxCell);
+            $r = rand(1, $maxCell);
+            $c = rand(1, $maxCell);
             if (!($this->grid[$r][$c] instanceof WallRoom)) {
                 $randRoom = $this->grid[$r][$c];
                 return $randRoom;

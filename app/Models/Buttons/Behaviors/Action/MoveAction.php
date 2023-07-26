@@ -21,13 +21,13 @@ class MoveAction extends Action
         $roomsNear = $this->game->world->getRoomsNearEntity($player);
 
         if ($this->direction == 'up') {
-            $text = $player->enterRoom($roomsNear['up']);
+            $text = $player->changeRoom($roomsNear['up']);
         } elseif ($this->direction == 'down') {
-            $text = $player->enterRoom($roomsNear['down']);
+            $text = $player->changeRoom($roomsNear['down']);
         } elseif ($this->direction == 'right') {
-            $text = $player->enterRoom($roomsNear['right']);
+            $text = $player->changeRoom($roomsNear['right']);
         } elseif ($this->direction == 'left') {
-            $text = $player->enterRoom($roomsNear['left']);
+            $text = $player->changeRoom($roomsNear['left']);
         }
 
         //изменение статуса тумана вокруг player

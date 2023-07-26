@@ -22,9 +22,9 @@ abstract class RoomModificator implements RoomInterface, ViewInterface
         return $this->room->getId();
     }
 
-    public function enter(EntityInterface $entity)
+    public function enterRoom(EntityInterface $entity, RoomInterface $room)
 	{
-		return $this->room->enter($entity);
+		return $this->room->enterRoom($entity, $room);
 	}
 
     public function exitRoom(EntityInterface $entity)

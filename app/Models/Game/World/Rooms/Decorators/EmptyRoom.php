@@ -5,16 +5,16 @@ namespace App\Models\Game\World\Rooms\Decorators;
 
 
 use App\Models\Game\Entitys\EntityInterface;
+use App\Models\Game\World\Rooms\RoomInterface;
 
 class EmptyRoom extends RoomModificator
 {
-	public function enter(EntityInterface $entity)
+	public function enterRoom(EntityInterface $entity, RoomInterface $room)
 	{
         $text = '';
 		$this->room->setEntity($entity);
 
-        $entity->getCurrentRoom()->exitRoom($entity);
-        $entity->setCurrentRoom($this);
+        $entity->setCurrentRoom($room);
         $nameEntity = $entity->getEntityName();
 		if ($nameEntity == "Player") {
 		    $this->setVisitedStatus();

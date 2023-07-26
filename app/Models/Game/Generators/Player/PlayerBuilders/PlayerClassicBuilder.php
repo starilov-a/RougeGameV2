@@ -17,8 +17,7 @@ class PlayerClassicBuilder extends PlayerBuilder
     public function setInRoom()
     {
         $currentRoom = $this->floor->randomEmptyRoom();
-
-        $this->player->setCurrentRoom($currentRoom);
+        $currentRoom->enterRoom($this->player, $currentRoom);
 
         $roomsNear = $this->floor->getRoomsNearEntity($this->player);
         foreach ($roomsNear as $room){

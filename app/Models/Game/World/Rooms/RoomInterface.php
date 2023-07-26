@@ -12,7 +12,7 @@ interface RoomInterface
 	public function getInfo();
 	public function setFlags($flag, $status);
     public function getFlags($flag);
-	public function enter(EntityInterface $entity);
+	public function enterRoom(EntityInterface $entity, RoomInterface $room);
     public function exitRoom(EntityInterface $entity);
 	public function checkWithFlashlight();
 	public function getFogStatus();

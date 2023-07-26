@@ -9,12 +9,14 @@ class SwitchedMenu extends Menu
     public function nextButtons()
     {
         $menuHistory = array_reverse($this->meta->menuHistory);
-        $currentMenu = array_shift($menuHistory);
+        $currentMenu = $menuHistory[1];
 
         foreach ($menuHistory as $menuName) {
-            if ($menuName != $currentMenu && $menuName !='SwitchedPage') {
+            if ($menuName != $currentMenu && $menuName != 'SwitchedMenu') {
                 $nextButtonsBehavior = __NAMESPACE__ . '\\' . $menuName;
-                return new $nextButtonsBehavior();
+
+                $behavior =  new $nextButtonsBehavior();
+                return $behavior->nextButtons();
             }
         }
     }
