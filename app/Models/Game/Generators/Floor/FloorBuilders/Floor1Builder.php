@@ -14,7 +14,7 @@ use App\Models\Game\World\Rooms\Room;
 
 class Floor1Builder extends FloorBuilder
 {
-	const SIZE_FLOOR = 10+2;
+	const SIZE_FLOOR = 10+2; //max 15
 
 	public function reset() {
 		$this->floor = new Floor1();

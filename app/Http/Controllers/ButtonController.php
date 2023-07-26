@@ -10,7 +10,8 @@ class ButtonController
 {
     private $links = [
         'inGame' => [
-            'Инвентарь' => 'InventoryButton',
+            'Инвентарь' => 'Inventory',
+            'Исследовать' => 'Search',
             'Карта' => 'FloorMap',
             'Фонарик' => 'Flashlight',
             'Движение' => 'Movement',

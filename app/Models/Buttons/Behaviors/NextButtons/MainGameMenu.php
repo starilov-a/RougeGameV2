@@ -7,6 +7,7 @@ namespace App\Models\Buttons\Behaviors\NextButtons;
 use App\Models\Buttons\InGame\FloorMap;
 use App\Models\Buttons\InGame\Movement;
 use App\Models\Buttons\InGame\PlayerInventory;
+use App\Models\Buttons\InGame\Search;
 use App\Models\Buttons\Meta\Back;
 
 class MainGameMenu extends Menu implements NextButtonsBehavior
@@ -19,6 +20,9 @@ class MainGameMenu extends Menu implements NextButtonsBehavior
                 [
                     [
                         'text' => Movement::TEXT_BUTTON
+                    ],
+                    [
+                        'text' => Search::TEXT_BUTTON
                     ]
                 ],
                 [

@@ -14,6 +14,7 @@ class Room implements RoomInterface, ViewInterface
 	protected $entity = [];
 	protected $flags = [
 		'visited' => false,
+        'flashed' => false,
 		'fog' => 2,
 	];
     protected $alieses = [
