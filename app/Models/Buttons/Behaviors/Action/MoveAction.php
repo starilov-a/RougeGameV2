@@ -35,6 +35,8 @@ class MoveAction extends Action
         foreach ($roomsNear as $room)
             $room->setFogStatus(1);
 
+        $text .= "\r\n\r\n" . $this->game->world->viewMap();
+
         return $text;
     }
 }

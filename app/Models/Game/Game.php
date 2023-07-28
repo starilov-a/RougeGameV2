@@ -31,7 +31,7 @@ class Game
         //генерация player
         $this->player = $gameCreator->createPlayer();
 
-        $this->started = true;
+       $this->startStatus();
     }
 
     public function update()
@@ -41,7 +41,17 @@ class Game
         //отработка событий
     }
 
-    public function startedStatus()
+    public function pauseStatus()
+    {
+        $this->started = false;
+    }
+
+    public function startStatus()
+    {
+        $this->started = true;
+    }
+
+    public function status()
     {
         return $this->started;
     }

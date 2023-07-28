@@ -11,7 +11,7 @@ use App\Models\Buttons\InGame\MoveUp;
 use App\Models\Buttons\InGame\PlayerInventory;
 use App\Models\Buttons\Meta\Back;
 
-class MoveMenu extends Menu implements NextButtonsBehavior
+class MoveMenu extends Menu
 {
 
     public function nextButtons()

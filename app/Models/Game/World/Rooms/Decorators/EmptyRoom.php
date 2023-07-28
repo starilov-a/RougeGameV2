@@ -18,7 +18,7 @@ class EmptyRoom extends RoomModificator
         $nameEntity = $entity->getEntityName();
 		if ($nameEntity == "Player") {
 		    $this->setVisitedStatus();
-            $text = 'Топ-топ в другую комнату';
+            $text = '*Топ-топ в другую комнату*';
         }
 
 		return $text;

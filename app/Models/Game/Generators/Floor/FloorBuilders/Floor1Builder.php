@@ -45,7 +45,7 @@ class Floor1Builder extends FloorBuilder
 		$grid = $this->floor->getGrid();
 
 		//Расстановка стен
-		for ($wallCount = 5, $i = 0; $i < $wallCount; $i++) {
+		for ($wallCount = 20, $i = 0; $i < $wallCount; $i++) {
 			do {
 				$r = rand(1, $this::SIZE_FLOOR - 2);
 				$c = rand(1, $this::SIZE_FLOOR - 2);
@@ -77,7 +77,7 @@ class Floor1Builder extends FloorBuilder
         $coordsStack = $officesRoomsCoords;
         shuffle($coordsStack);
 
-        for ($darkRooms = 2, $i = 0; $i < $darkRooms; $i++) {
+        for ($darkRooms = 20, $i = 0; $i < $darkRooms; $i++) {
             $couple = array_pop($coordsStack);
             $r = $couple[0];
 			$c = $couple[1];

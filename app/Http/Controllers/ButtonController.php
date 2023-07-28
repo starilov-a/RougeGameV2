@@ -10,19 +10,25 @@ class ButtonController
 {
     private $links = [
         'inGame' => [
-            'Инвентарь' => 'Inventory',
-            'Исследовать' => 'Search',
-            'Карта' => 'FloorMap',
-            'Фонарик' => 'Flashlight',
+            'Выйти в главное меню' => 'ExitToMainMenu',
+
             'Движение' => 'Movement',
             'Вверх' => 'MoveUp',
             'Вправо' => 'MoveRight',
             'Влево' => 'MoveLeft',
             'Вниз' => 'MoveDown',
+
+            'Инвентарь' => 'Inventory',
+            'Исследовать' => 'Search',
+            'Карта' => 'FloorMap',
+            'Фонарик' => 'Flashlight',
         ],
         'outOfGame' => [
-            'Начать игру' => 'StartGame',
-            '/start' => 'StartGame'
+            '/start' => 'MainMenu',
+            'Главное меню' => 'MainMenu',
+
+            'Загрузить игру' => 'LoadGame',
+            'Новая игра' => 'NewGame',
         ],
         'meta' => [
             'Назад' => 'Back',
@@ -38,10 +44,10 @@ class ButtonController
 
         session(['botSession' => $session]);
 
-        if (isset($this->links['inGame'][$message]) && $session->game->startedStatus()){
+        if (isset($this->links['inGame'][$message]) && $session->game->status()){
             $buttonClass = '\App\Models\Buttons\InGame'. '\\' . $this->links['inGame'][$message];
             $button = new $buttonClass();
-        } elseif (isset($this->links['outOfGame'][$message]) && !$session->game->startedStatus()) {
+        } elseif (isset($this->links['outOfGame'][$message]) && !$session->game->status()) {
             $buttonClass = '\App\Models\Buttons\OutOfGame'. '\\' . $this->links['outOfGame'][$message];
             $button = new $buttonClass();
         } elseif (isset($this->links['meta'][$message])) {
