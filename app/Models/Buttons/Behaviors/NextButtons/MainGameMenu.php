@@ -40,6 +40,9 @@ class MainGameMenu extends Menu
                 [
                     [
                         'text' => FloorMap::TEXT_BUTTON
+                    ],
+                    [
+                        'text' => PlayerInventory::TEXT_BUTTON
                     ]
                 ],
                 [

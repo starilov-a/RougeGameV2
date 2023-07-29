@@ -5,6 +5,7 @@ namespace App\Models\Game\Generators\Player\PlayerBuilders;
 
 
 use App\Models\Game\Entitys\Player;
+use App\Models\Game\Items\Flashlight;
 
 class PlayerClassicBuilder extends PlayerBuilder
 {
@@ -27,6 +28,6 @@ class PlayerClassicBuilder extends PlayerBuilder
 
     public function giveItems()
     {
-        return false;
+        $this->player->setItem(new Flashlight());
     }
 }

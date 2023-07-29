@@ -4,9 +4,11 @@
 namespace App\Models\Game\World\Rooms;
 
 
-use App\Models\Game\Entitys\EntityInterface;
 
-interface RoomInterface
+use App\Models\Game\Entitys\Interfaces\EntityInterface;
+use App\Models\Game\Interfaces\InfoInterface;
+
+interface RoomInterface extends InfoInterface
 {
     public function getId();
 	public function getInfo();

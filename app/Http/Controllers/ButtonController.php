@@ -18,9 +18,10 @@ class ButtonController
             'Влево' => 'MoveLeft',
             'Вниз' => 'MoveDown',
 
-            'Инвентарь' => 'Inventory',
+            'Инвентарь' => 'PlayerInventory',
             'Исследовать' => 'Search',
             'Карта' => 'FloorMap',
+
             'Фонарик' => 'Flashlight',
         ],
         'outOfGame' => [

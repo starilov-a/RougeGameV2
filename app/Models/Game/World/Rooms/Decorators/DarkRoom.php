@@ -6,6 +6,9 @@ namespace App\Models\Game\World\Rooms\Decorators;
 
 class DarkRoom extends RoomModificator
 {
+
+    const TITLE = 'Темная комната';
+
     public function getInfo()
     {
         if ($this->getFlags('flashed') == false)
@@ -15,7 +18,7 @@ class DarkRoom extends RoomModificator
 
     public function checkWithFlashlight()
 	{
-		$text = 'Вы осветили комнату. Она оказалась такой же как и все остальные';
+		$text = 'Вы осветили комнату. Она оказалась такой же как и все остальные' . "\r\n\r\n";
 		return $text . $this->room->checkWithFlashlight();
 	}
 }

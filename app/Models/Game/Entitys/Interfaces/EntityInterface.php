@@ -1,10 +1,9 @@
 <?php
 
 
-namespace App\Models\Game\Entitys;
+namespace App\Models\Game\Entitys\Interfaces;
 
 
-use App\Models\Game\World\Rooms\Room;
 use App\Models\Game\World\Rooms\RoomInterface;
 
 interface EntityInterface

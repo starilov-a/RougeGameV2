@@ -4,6 +4,7 @@
 namespace App\Models\Game\Entitys;
 
 
+use App\Models\Game\Entitys\Interfaces\EntityInterface;
 use App\Models\Game\World\Rooms\Room;
 use App\Models\Game\World\Rooms\RoomInterface;
 

@@ -26,39 +26,39 @@ class RowsGenerator extends MenuDecorator
         $rowInMenu = 2;
 
         foreach ($items as $key => $item)
-            $items[$key] = ['text' => $item->title];
+            $items[$key] = ['text' => $item->getTitle()];
         $playerItemsRows = array_chunk($items, 3);
-        $playerItemsSliced = array_slice($playerItemsRows, $this->meta->menuPage, $rowInMenu);
 
-        $keyboard[] = $playerItemsSliced;
-        if (count($playerItemsRows) > $rowInMenu && $this->meta->menuPage == 0) {
-            $keyboard[] = [
+        $playerItemsSliced = array_slice($playerItemsRows, $this->menu->meta->menuPage, $rowInMenu);
+        $keyboard = $playerItemsSliced;
+        if (count($playerItemsRows) > $rowInMenu && $this->menu->meta->menuPage == 0) {
+            array_push($keyboard,[
                 [
                     'text' => NextPage::TEXT_BUTTON
                 ],
-            ];
-        } elseif (count($playerItemsRows) > $rowInMenu && count($playerItemsRows) - $this->meta->menuPage != 0) {
-            $keyboard[] = [
+            ]);
+        } elseif (count($playerItemsRows) > $rowInMenu && count($playerItemsRows) - $this->menu->meta->menuPage != 0) {
+            array_push($keyboard,[
                 [
                     'text' => PreviousPage::TEXT_BUTTON
                 ],
                 [
                     'text' => NextPage::TEXT_BUTTON
                 ],
-            ];
+            ]);
         } elseif (count($playerItemsRows) > $rowInMenu) {
-            $keyboard[] = [
+            array_push($keyboard,[
                 [
                     'text' => PreviousPage::TEXT_BUTTON
                 ]
-            ];
+            ]);
         }
 
-        $keyboard[] = [
+        array_push($keyboard,[
             [
                 'text' => Back::TEXT_BUTTON
             ]
-        ];
+        ]);
 
         return [
             'keyboard' => $keyboard,

@@ -4,11 +4,13 @@
 namespace App\Models\Game\World\Rooms;
 
 
-use App\Models\Game\Entitys\EntityInterface;
+use App\Models\Game\Entitys\Interfaces\EntityInterface;
 use App\Models\Game\Interfaces\ViewInterface;
 
 class Room implements RoomInterface, ViewInterface
 {
+    const TITLE = 'Комната';
+
     protected $id;
 	protected $items = [];
 	protected $entity = [];
@@ -48,6 +50,11 @@ class Room implements RoomInterface, ViewInterface
 	{
 		return '';
 	}
+
+    public function getTitle()
+    {
+        return $this::TITLE;
+    }
 
 	public function enterRoom(EntityInterface $entity, RoomInterface $room)
 	{

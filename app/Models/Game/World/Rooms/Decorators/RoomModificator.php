@@ -4,7 +4,7 @@
 namespace App\Models\Game\World\Rooms\Decorators;
 
 
-use App\Models\Game\Entitys\EntityInterface;
+use App\Models\Game\Entitys\Interfaces\EntityInterface;
 use App\Models\Game\Interfaces\ViewInterface;
 use App\Models\Game\World\Rooms\RoomInterface;
 
@@ -36,6 +36,11 @@ abstract class RoomModificator implements RoomInterface, ViewInterface
 	{
 		return $this->room->getInfo();
 	}
+
+    public function getTitle()
+    {
+        return $this->room->getTitle();
+    }
 
 	public function checkWithFlashlight()
 	{

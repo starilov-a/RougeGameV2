@@ -5,6 +5,7 @@ namespace App\Models\Buttons\InGame;
 
 
 use App\Models\Buttons\Behaviors\Action\EmptyAction;
+use App\Models\Buttons\Behaviors\Action\FlashlightAction;
 use App\Models\Buttons\Behaviors\NextButtons\Decorators\RowsGenerator;
 use App\Models\Buttons\Behaviors\NextButtons\MainGameMenu;
 

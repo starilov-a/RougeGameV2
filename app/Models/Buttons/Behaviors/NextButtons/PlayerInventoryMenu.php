@@ -14,7 +14,7 @@ class PlayerInventoryMenu extends GeneratedMenu
 
     protected function itemsForGenerate()
     {
-        return $this->game->player->invenory->items();
+        return $this->game->player->getItmes();
     }
 
 }

@@ -4,7 +4,7 @@
 namespace App\Models\Game\World\Floors;
 
 
-use App\Models\Game\Entitys\EntityInterface;
+use App\Models\Game\Entitys\Interfaces\EntityInterface;
 use App\Models\Game\World\Rooms\Decorators\WallRoom;
 
 abstract class Floor

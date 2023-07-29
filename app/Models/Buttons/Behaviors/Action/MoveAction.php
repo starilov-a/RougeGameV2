@@ -35,7 +35,10 @@ class MoveAction extends Action
         foreach ($roomsNear as $room)
             $room->setFogStatus(1);
 
-        $text .= "\r\n\r\n" . $this->game->world->viewMap();
+        $text .= "Вы оглянулись:"."\r\n";
+        $text .= $this->game->player->getCurrentRoom()->getInfo();
+
+        $text .= $this->game->world->viewMap();
 
         return $text;
     }
